@@ -1,0 +1,19 @@
+index:
+    path: /
+    controller: App\Controller\FrontEnd\DefaultController::index
+
+apiMovie:
+    path: /api/movie
+    controller: App\Controller\Api\MovieController::index
+
+apiMovieLoad:
+    path: /api/movie/load/{id}
+    controller: App\Controller\Api\MovieController::load
+    defaults: { id: 0 }
+
+    
+apiMovieLoadSequens:
+    path: /api/movie/load-sequens/{ln}
+    controller: App\Controller\Api\MovieController::loadSequens
+    defaults: { ln: 2 }
+

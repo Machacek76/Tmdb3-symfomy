@@ -1,0 +1,24 @@
+{
+    "devDependencies": {
+        "@babel/preset-react": "^7.0.0",
+        "@symfony/webpack-encore": "^0.22.0",
+        "node-sass": "^4.11.0",
+        "nodemon": "^1.18.9",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+        "watch-css-cms": "nodemon -e scss -x \"npm run build-css-cms\"",
+        "build": "encore production --progress",
+        "build-css": "node-sass --include-path scss assets/frontend/css/app.scss   public/dist/frontend-app.css",
+        "build-css-cms": "node-sass --include-path scss assets/cms/css/app.scss   public/dist/cms-app.css"
+    },
+    "dependencies": {
+        "material-ui": "^0.20.2"
+    }
+}
