@@ -36,7 +36,8 @@
 # Composer PHAR
 /composer.phar
 
-#nodejs
-
+# nodejs
 /node_module
 
+# VScode
+/.vscode
