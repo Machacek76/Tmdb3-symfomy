@@ -403,13 +403,18 @@ class TMDb
 	 * Retrieve all basic information for a particular person
 	 *
 	 * @param int $id					TMDb person-id
+	 * @param mixed $lang				Filter the result with a language (ISO 3166-1) other then default, use FALSE to retrieve results from all languages
 	 * @return TMDb result array
 	 */
-	public function getPerson($id)
+	public function getPerson($id, $lang = NULL)
 	{
-		return $this->_makeCall('person/'.$id);
+		$params = array(
+			'language' => ($lang !== NULL) ? $lang : $this->getLang(),
+		);
+		return $this->_makeCall('person/'.$id, $params);
 	}
 
+	
 	/**
 	 * Retrieve all cast and crew information for a particular person
 	 *

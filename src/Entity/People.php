@@ -82,11 +82,6 @@ class People
     private $birthday;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $deathday;
-
-    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $createdAt;
@@ -95,6 +90,11 @@ class People
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $csBiography;
 
     public function getId(): ?int
     {
@@ -257,17 +257,6 @@ class People
         return $this;
     }
 
-    public function getDeathday(): ?string
-    {
-        return $this->deathday;
-    }
-
-    public function setDeathday(?string $deathday): self
-    {
-        $this->deathday = $deathday;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -289,6 +278,18 @@ class People
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getCsBiography(): ?string
+    {
+        return $this->csBiography;
+    }
+
+    public function setCsBiography(?string $csBiography): self
+    {
+        $this->csBiography = $csBiography;
 
         return $this;
     }
