@@ -6,7 +6,7 @@ namespace App\Model;
 
 
 
-class Peoplemovie extends AbstractBaseModel {
+class PeopleModel extends AbstractBaseModel {
 
 
 

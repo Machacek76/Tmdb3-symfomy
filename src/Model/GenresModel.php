@@ -19,10 +19,27 @@ class GenresModel extends AbstractBaseModel {
     protected $lang;
 
 
+    /**
+     * __construnc
+     *
+     * @param mixed $doctrine
+     * @return void
+     */
+    public function __construnc($doctrine)
+    {
+        parent::__construnc($doctrine );
+    }
 
 
 
 
+    /**
+     * makeGenres
+     *
+     * @param array $genres
+     * @param mixed string
+     * @return void
+     */
     public function makeGenres(array $genres, string $lang = 'cs'): array
     {
         $this->lang = $lang;
