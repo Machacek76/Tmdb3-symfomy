@@ -1,0 +1,19 @@
+{
+    "host": "80.211.195.87",
+    "username": "sftp-data",
+    "password": "xCKA?$KyuBu6UNfMYCmg!r@=%KPJhp5XLrct+Pr^2CXL4aupk?&-*RHQfB&WGv?Q",
+    "remotePath": "/var/www/tmdb3",
+    "protocol": "sftp",
+    "port": 0,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": true,
+    "autoDownload": true,
+    "ignore": [
+        ".git",
+        "/.vscode",
+        "/node_modules/",
+        "/vendor/",
+        "/var/"
+    ]
+} 
