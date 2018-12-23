@@ -16,8 +16,8 @@ class PeopleModel extends AbstractBaseModel {
      * @param mixed $doctrine
      * @return void
      */
-    public function __construnc($doctrine){
-        parent::__construnc($doctrine );
+    public function __construnct($doctrine){
+        parent::__construnct($doctrine );
     }
 
 

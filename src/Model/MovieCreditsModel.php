@@ -21,9 +21,9 @@ class MovieCreditsModel extends AbstractBaseModel {
 
 
 
-    public function __construnc($doctrine)
+    public function __construnct($doctrine)
     {
-        parent::__construnc($doctrine );
+        parent::__construnct($doctrine );
     }
 
 
