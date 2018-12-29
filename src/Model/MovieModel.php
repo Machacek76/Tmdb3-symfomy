@@ -8,6 +8,8 @@ use App\Repository\MovieRepository;
 use Cocur\Slugify\Slugify;
 
 
+
+
 class MovieModel extends AbstractBaseModel {
 
 
