@@ -139,10 +139,10 @@ class MovieController extends BaseController{
     public function loadSequens (int $ln)
     {
         
-        if( !$this->cache->has('api.movi.loadSequens.last')){
+        if( !$this->cache->has('api.movie.loadSequens.last')){
             $last = 1;
         }else{
-            $last = $this->cache->get('api.movi.loadSequens.last');
+            $last = $this->cache->get('api.movie.loadSequens.last');
         }
 
         if($ln === 0){
@@ -153,13 +153,13 @@ class MovieController extends BaseController{
         $out = [];
 
         for ($i = $last; $i < $ln; $i ++ ){
-            $this->cache->set('api.movi.loadSequens.last', $i);
+            $this->cache->set('api.movie.loadSequens.last', $i);
             $url = "https://tmdb3.jsvyvoj.cz/api/movie/load/" . $i;
             $data = file_get_contents($url);
             $out[] = [ 'url' => $url, 'data' => json_decode($data) ];    
         }
         
-        $this->cache->set('api.movi.loadSequens.last', $i);
+        $this->cache->set('api.movie.loadSequens.last', $i);
 
         return new JsonResponse($out);
     }

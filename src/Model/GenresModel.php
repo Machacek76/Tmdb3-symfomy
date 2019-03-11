@@ -31,6 +31,25 @@ class GenresModel extends AbstractBaseModel {
     }
 
 
+    /**
+     * getGenres
+     *
+     * @param mixed $id
+     * @return void
+     */
+    public function getGenres (int $id)
+    {
+        $this->repository = $this->doctrine->getRepository(\App\Entity\Genres::class);
+        
+        $gen = $this->repository->findOneBy(['id'=>$id]);
+
+        $out = $gen->toArray();
+
+        unset($out['createdAt']);
+        unset($out['updatedAt']);
+
+        return $out;
+    }
 
 
     /**

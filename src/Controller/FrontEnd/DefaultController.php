@@ -9,6 +9,8 @@ use Symfony\Component\Cache\Simple\FilesystemCache;
 
 class DefaultController extends BaseController
 {
+
+    /*
     public function index()
     {
         return new Response('
@@ -18,7 +20,20 @@ class DefaultController extends BaseController
                 </body>
             </html>
         ');
+    }*/
+
+
+
+    /**
+     *  @Route("/{reactRouting}", name="index", defaults={"reactRouting": null})
+     */
+    public function index()
+    {
+        return $this->render('/frontend/default/index.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
     }
+    /* */
 }
 
 

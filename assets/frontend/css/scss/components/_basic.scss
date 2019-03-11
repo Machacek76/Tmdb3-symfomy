@@ -1,0 +1,72 @@
+
+
+body {
+    background: whitesmoke;
+}
+
+
+
+.container {
+    background: white;
+}
+
+
+.container-content {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.hero-image {
+    max-width: 100%;
+}
+
+
+/**
+ *  Tiltes
+ **/
+
+h1 { 
+    font-size: 20px;
+}
+ 
+h2 { 
+    font-size: 18px;
+}
+ 
+h3 { 
+    font-size: 16px;
+}
+ 
+h4 { 
+    font-size: 14px;
+}
+ 
+h5 { 
+    font-size: 12px;
+}
+ 
+h6 { 
+    font-size: 10px;
+}
+
+p {
+    font-size: 15px;
+}
+
+/**
+ * Ratio containery
+ **/
+
+.ratio-34-cont {
+
+    &--wrapper {
+        padding-top: 1.33%; 
+    }
+
+    &--img {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+}

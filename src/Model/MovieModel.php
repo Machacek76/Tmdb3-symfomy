@@ -58,6 +58,17 @@ class MovieModel extends AbstractBaseModel {
     }
 
 
+    public function gatLastId()
+    {
+        $sql = 'SELECT id FROM movie ORDER by id DESC LIMIT 1';
+        $stmt = $this->manager->getConnection()->prepare($sql);
+        $stmt->execute();
+    
+        $row = $stmt->fetch();
+
+        return $row['id'];
+    }
+
 
 
     ###################################################################################
@@ -81,12 +92,51 @@ class MovieModel extends AbstractBaseModel {
 
     ###################################################################################
 
+
+    /**
+     * getMovie
+     *
+     * @param int $id
+     * @return array
+     */
+    public function getMovie(int $id):array
+    {
+        $this->generateModels();
+        $this->repository = $this->doctrine->getRepository(\App\Entity\Movie::class);
+
+        $rep = $this->repository->findOneBy(['id'=>$id]);
+
+
+        $out = $rep->toArray();
+
+        $genresId = $rep->getGenresId();
+        $genres = array();
+        foreach ($genresId as $key){
+            $genres[] = $this->genresModel->getGenres($key);
+        }
+
+        $out['genres']          = $genres;
+        $out['release_date']    = $rep->getReleaseDate()->format('j. n. Y');
+        $out['updatedAt']       = $rep->getUpdatedAt()->format('H:i j. n. Y');
+        $out['createdAt']       = $rep->getCreatedAt()->format('H:i j. n. Y');
+
+
+        unset($out['genres_id']);
+
+
+        return $out;
+    }
+
+
+    /**
+     * makeMovie
+     *
+     * @param array $movie
+     * @param mixed string
+     * @return array
+     */
     public function makeMovie(array $movie, string $lang = 'cs') : array
     {
-
-
-
-
         $this->generateModels();
 
         $this->lang = $lang;

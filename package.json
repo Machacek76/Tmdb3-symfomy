@@ -4,6 +4,7 @@
         "@symfony/webpack-encore": "^0.22.0",
         "node-sass": "^4.11.0",
         "nodemon": "^1.18.9",
+        "sass-loader": "^7.0.1",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -19,6 +20,13 @@
         "build-css-cms": "node-sass --include-path scss assets/cms/css/app.scss   public/dist/cms-app.css"
     },
     "dependencies": {
-        "material-ui": "^0.20.2"
+        "@material-ui/core": "^3.9.2",
+        "@types/react": "^16.8.7",
+        "@types/react-dom": "^16.8.2",
+        "bootstrap": "^4.3.1",
+        "material-ui": "^0.20.2",
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4",
+        "react-router-dom": "^4.3.1"
     }
 }

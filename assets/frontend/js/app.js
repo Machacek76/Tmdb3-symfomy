@@ -1,79 +1,37 @@
 // assets/js/app.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import ItemCard from './Components/ItemCard';
-import MvieCard from './Components/MovieCard';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+//import './index.css'
+import Home from './route/index'
+import Films from './route/films'
+import People from './route/people'
+import Serials from './route/serials'
 
-class App extends React.Component {
-  constructor() {
-    super();
+import Menu from './Components/Menu'
+import Footer from './Components/Footer'
 
-    this.state = {
-      entries: [],
-      movieEntries : []
-    };
-  }
 
-  componentDidMount() {
-    fetch('/film/data')
-      .then(response => response.json())
-      .then(entries => {
-        this.setState({
-          entries
-        });
-      });
-  }
-  
 
-  
-  componentDidMount() {
-    fetch('/api/film/all')
-      .then(response => response.json())
-      .then(entries => {
-        this.setState({
-          movieEntries
-        });
-      });
-  }
 
-  render() {
-    return (
-      <MuiThemeProvider>
-        <div style={{ display: 'flex' }}>
-          {this.state.entries.map(
-            ({ id, author, avatarUrl, title, description }) => (
-              <ItemCard
-                key={id}
-                author={author}
-                title={title}
-                avatarUrl={avatarUrl}
-                style={{ flex: 1, margin: 10 }}
-              >
-                {description}
-              </ItemCard>
-            )
-          )}
+const routing = (
+  <Router>
+    <div>
+      <Menu />
+      <div className="container pb-20">
+        <div className="container-content">
+          <Route path="/"   exact component={Home}    />
+          <Route path="/lide"     component={People}  />
+          <Route path="/filmy"    component={Films}   />
+          <Route path="/serialy"  component={Serials} />
         </div>
-        <div style={{ display: 'flex' }}>
-          {this.state.entries.map(
-            ({ id, author, avatarUrl, title, description }) => (
-              <MovieCard
-                key={id}
-                author={author}
-                title={title}
-                avatarUrl={avatarUrl}
-                style={{ flex: 1, margin: 10 }}
-              >
-                {description}
-              </MovieCard>
-            )
-          )}
-        </div>
-      </MuiThemeProvider>
-    ); 
-  }
-}
+      </div>
+      <Footer />
+    </div>
+  </Router>
+)
+ReactDOM.render(routing, document.getElementById('root'))
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+

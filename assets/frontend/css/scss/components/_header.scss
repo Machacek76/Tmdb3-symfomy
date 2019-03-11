@@ -1,0 +1,23 @@
+
+
+
+.site-header {
+    background-color: $color-basic;
+
+    .container {
+        background-color: rgba($color: #000000, $alpha: 0)
+    }
+
+
+
+    .nav-link {
+        color: $color-link-light;
+
+        &.active{
+            color: $color-link-light-active;
+            font-weight: bold;
+        }
+    }
+
+
+}

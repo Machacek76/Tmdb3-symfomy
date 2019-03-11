@@ -22,6 +22,12 @@ class BaseController extends AbstractController{
     protected $response;
 
 
+    /**
+     * $nocache
+     *
+     * @var null
+     */
+    protected $nocache = NULL;
 
 
     public function __construct()
@@ -29,6 +35,8 @@ class BaseController extends AbstractController{
         $this->cache = new FilesystemCache();
 
         $this->request = Request::createFromGlobals();
+
+        $this->nocache = $this->request->query->get('nocache');
     }
 
 
@@ -40,8 +48,10 @@ class BaseController extends AbstractController{
         }else{
             $res = $this->cache->get($key);
             $ts = time();
-            if($res['time'] > $ts){
-//                var_dump($res['data']);
+            
+            if(!isset($res['time'])) {
+                return NULL;
+            }else if($res['time'] > $ts){
                 return $res['data'];
             }else{
                 return NULL;

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MovieRepository")
  */
-class Movie
+class Movie 
 {
     /**
      * @ORM\Id()
@@ -478,5 +478,9 @@ class Movie
         $this->normalizeTitle = $normalizeTitle;
 
         return $this;
+    }
+
+    public function toArray(){
+        return  get_object_vars($this);
     }
 }
